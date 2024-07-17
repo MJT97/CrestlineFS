@@ -392,6 +392,23 @@ img
     height: 100%;
     border-radius: 10px;
 }
+.icons
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.icons li
+{
+    list-style-type: none;
+    width: 20px;
+    height: 20px;
+}
+.icons li:hover
+{
+    transform: scale(1.1);
+}
 @media screen and (max-width: 700px)
 {
     .list

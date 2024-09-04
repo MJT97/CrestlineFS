@@ -32,30 +32,91 @@ body
     justify-content: center;
     align-items: center;
 }
+@keyframes slidedown
+{
+    0%{transform: translateY(100%);}
+    100%{transform: translateY(0);}
+    /*animation: slidein 2s forwards infinite{loop};*/
+}
+@keyframes slideup
+{
+    0%{transform: translateY(-100%);}
+    100%{transform: translateY(0);}
+    /*animation: slideup 2s forwards infinite;*/
+}
+/*---ANIMATIONS---*/
+@keyframes  pulse/*Makes the object change size in a pulsating motion*/
+{
+    0%, 100%{transform: scale(0.95);}
+    50%{transform: scale(1);}
+    /*animation: pulse 2s ease-in-out infinite;*/
+}
+@keyframes bounce
+{
+    0%, 100%{transform: translateY(0);}
+    50%{transform: translateY(-10px);}
+    /*animation: bounce 2s ease-in-out infinite;*/
+}
+@keyframes revolution
+{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+    /*animation: revolution 2s infinite linear;*/
+}
 @keyframes slidein
 {
-    0%{transform: translateX(100%);}
+    0%{transform: translateX(-100%);}
     100%{transform: translateX(0);}
     /*animation: slidein 2s forwards infinite;*/
 }
+@keyframes slideleft /*Slides In from the far Left*/
+{
+    0%{transform: translateX(-100%);}
+    100%{transform: translateX(0);}
+}
+@keyframes slideright
+{
+    0%{transform: translateX(100%);}
+    100%{transform: translateX(0);}
+}
+@keyframes zoomfade
+{
+    0%
+    {
+        transform: scaleX(0.1);
+        opacity: 0;
+    }
+    50%
+    {
+        transform: scaleX(0.8);
+        opacity: 0.5;
+    }
+    100%
+    {
+        transform: translateX(1);
+        opacity: 1;
+    }
+}
+
 
 header
 {
     width: 100%;
-    height: fit-content;
     display: flex;
-    justify-content: space-between;
+    height: fit-content;
     align-items: center;
     scroll-snap-align: start;
     scroll-snap-align: start;
+    justify-content: space-between;
+    animation: slideup 1s forwards ease-in-out;
 }
 .icon
 {
+    height: 50px;
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
-    padding: 5px;
 }
 .icon img
 {
@@ -65,16 +126,16 @@ header
 }
 .burger
 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    width: 30px;
     margin: 10px;
     padding: 5px;
-    width: 30px;
     height: 20px;
-    background-color: skyblue;
+    display: flex;
     border-radius: 5px;
+    align-items: center;
+    flex-direction: column;
+    background-color: skyblue;
+    justify-content: space-around;
 }
 .burger ul
 {
@@ -102,12 +163,6 @@ header
 .burger
 {
     cursor: grab;
-}
-.tabs li
-{
-    box-shadow: 1px 1px 10px 1px purple;
-    backdrop-filter: blur(10px);
-    background: var(--purple-gradient);
 }
 #tabs2
 {
@@ -173,23 +228,11 @@ main
     width: 99%;
     z-index: 1;
 }
-
-.more_btn
+.slogan
 {
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 1px 1px 10px 1px purple;
-    backdrop-filter: blur(10px);
-    background: var(--purple-gradient);
+    animation: slidedown 2s ease-in-out forwards;
+    text-shadow: 5px 5px 0px white;
 }
-.more_btn a
-{
-    text-decoration: none;
-    color: white;    
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: bolder;
-}
-
 .summary
 {
     padding: 0;
@@ -202,15 +245,13 @@ main
     align-items: center;
     flex-direction: column;
 }
-.summary h1
+.summary h2
 {
     font-weight: bold;
-    color: purple;
+    color: rgb(46, 0, 46);
     padding: 10px;
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    background-color: white;
-    box-shadow: 0px 0px 5px 5px white;
+    text-shadow: 2px 2px 0px white;
+    font-size: x-large;
 }
 .summary .data
 {
@@ -227,6 +268,9 @@ section .data
     padding: 5px;
     margin: 5px;
     border-radius: 20px;
+    animation: zoomfade 1s linear;
+    animation-timeline: view();
+    animation-range: entry cover 50%;
 }
 section .data div
 {
@@ -241,6 +285,21 @@ section .data div
 {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.more_btn
+{
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 1px 1px 10px 1px;
+    background: linear-gradient(to right, purple, rgb(200, 29, 200), purple);
+}
+.more_btn a
+{
+    text-decoration: none;
+    color: white;    
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    animation: slidedown 3.5s forwards ease-in-out;
 }
 article
 {
@@ -299,14 +358,14 @@ footer
 }
 img
 {
-    padding: 0;
     margin: 0;
+    padding: 0;
     width: 100%;
 }
 .copyright
 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: purple;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .author
 {
@@ -419,6 +478,7 @@ img
         justify-content: space-around;
         font-family: 'Courier New', Courier, monospace;
         font-weight: bolder;
+        font-size: x-large;
     }
     .tabs li
     {
@@ -429,6 +489,11 @@ img
     a
     {
         text-decoration: none;
+    }
+    a:hover
+    {
+        text-shadow: 5px 2px 0px rgb(40, 0, 40);
+        transition: 0.4s;
     }
     .burger
     {

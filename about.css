@@ -107,6 +107,7 @@ header
     align-items: center;
     scroll-snap-align: start;
     scroll-snap-align: start;
+    animation: slideup 1s forwards ease-in-out;
 }
 .icon
 {
@@ -133,11 +134,16 @@ header
     align-items: center;
     justify-content: space-around;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
+    font-weight: 900;
     list-style-type: none;
-    box-shadow: 1px 1px 10px 1px purple;
     backdrop-filter: blur(10px);
-    background: var(--purple-gradient);
+    font-size: x-large;
+}
+.tabs li a:hover
+{
+    color: rgb(46, 0, 46);
+    text-shadow: 2px 2px 0px white;
+    transition: 0.3s;
 }
 .burger
 {
@@ -240,10 +246,13 @@ section .data
 .slogan
 {
     color: purple;
+    font-size: x-large;
+    animation: slideleft 2s forwards ease-in-out;
 }
 .title
 {
-    color: purple;
+    color: rgb(48, 0, 48);
+    text-shadow: 2px 2px 0px white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -312,7 +321,7 @@ section .data
 }
 .summary .data
 {
-    height: 60%
+    height: 60%;
 }
 .vision
 {
@@ -320,7 +329,8 @@ section .data
     flex-direction: column;
     justify-content: space-around;
     height: 90%;
-    animation: zoomfade linear ease-in-out;
+    overflow-y: scroll;
+    animation: zoomfade 1s linear;
     animation-timeline: view();
     animation-range: entry cover 20%;
 }
@@ -343,7 +353,9 @@ h1
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: x-large;
     font-weight: 400;
-    color: black;
+    color: rgb(45, 0, 45);
+    text-shadow: 2px 2px 0px white;
+    padding-bottom: 15px;
 }
 .parent
 {
@@ -460,6 +472,7 @@ hr
 .card:hover
 {
     background: linear-gradient(135deg, pink, rgb(203, 0, 203), pink);
+    transition: 0.4s;
 }
 .chair img
 {
@@ -482,17 +495,19 @@ hr
 {
     display:contents;
     color: lightblue;
+
 }
 #card-front .name
 {
     border: none;
     font-size: x-large;
     font-weight: bolder;
+    text-shadow: 2px 2px 0px rgb(44, 0, 44);
 }
 #card-back
 {
     display: none;
-    color: skyblue;
+    color: rgb(42, 0, 42);
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -509,27 +524,11 @@ hr
     font-size: large;
     font-weight: bolder;
     color: white;
+    text-decoration:overline underline;
+    text-shadow: -4px 0px 3px black;
 }
-.about
-{
-    height: 99%;
-    border-radius: 10px;
-    background-color: purple;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.name
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 99%;
-    z-index: 1;
-    font-weight: bolder;
-}
+
+
 @media screen and (max-width: 700px)
 {
     .list
@@ -607,7 +606,6 @@ hr
         list-style-type:none;
     }
 }
-
 .a:hover
 {
     background-color: white;
@@ -650,27 +648,43 @@ hr
         justify-content: center;
         align-items: center;
         font-family: sans-serif, 'Arial Narrow Bold', Impact, Haettenschweiler;
-        font-size: xx-large;
-        font-weight: bolder;
-        color: antiquewhite;
+        font-size: 5dvw;
+        font-weight: 900;
+        color: rgb(48, 0, 48);
+        text-shadow: 2px 2px 0px white;
     }
     section
     {
         height: 90vh;
     } 
-    .data
+    .section .data
     {
         display: flex;
         flex-direction: row;
     }
-    .data div
+    .section .data div
+    {
+        padding: 10px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        font-family: sans-serif, 'Arial Narrow Bold', Impact, Haettenschweiler;
+    }
+    .summary .data
+    {
+        display: flex;
+        flex-direction: row;
+    }
+    .summary .data div
     {
         padding: 10px;
         margin: 20px;
         display: flex;
         color: black;
         font-weight: bolder;
-        font-size: larger;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
@@ -682,7 +696,6 @@ hr
     {
         list-style-type:none;
     }
-    
     .about
     {
         display: flex;

@@ -189,7 +189,13 @@ header
     list-style-type: none;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.action a
+{
+    border-radius: 50px;
+    background-color: aqua;
+    color: purple;
+    padding: 10px;
+}
 main
 {
     width: 99%;

@@ -378,13 +378,7 @@ h1
     text-decoration: none;
     list-style: none;
 }
-footer
-{
-    width: 99%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
+
 .logo
 {
     width: 50px;
@@ -399,27 +393,54 @@ img
     margin: 0;
     width: 100%;
 }
+footer
+{
+    background-color: aqua;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .copyright
 {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: purple;
 }
 .author
 {
-    font-family: var(--font-1-B);
-    color: var(--dark-blue);
     font-style: italic;
+    color: var(--dark-blue);
+    font-family: var(--font-1-B);
+    width: 500px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
 .author a
 {
-    text-decoration: none;
     color: var(--dark-blue);
-    background-color: linear-gradient(purple, pink);
+    text-decoration: none;
     font-weight: bolder;
     font-style: normal;
     font-size: large;
-
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.author a img
+{
+    width: auto;
+    height: 100%;
+}
+
 .background
 {
     width: 100%;

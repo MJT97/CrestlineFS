@@ -129,10 +129,10 @@ header
 .action a
 {
     border-radius: 50px;
-    background-color: aqua;
-    color: purple;
+    background-color: purple;
     padding: 10px;
 }
+
 main
 {
     width: 99%;
@@ -515,7 +515,6 @@ footer
     {
         width: 20%;
         display: flex;
-        color: skyblue;
         font-weight: bold;
         align-items: center;
         text-decoration: none;

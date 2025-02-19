@@ -124,12 +124,15 @@ header
     height: 100%;
     border-radius: 10px;
 }
+
 .burger
 {
-    width: 30px;
+    width: 40px;
     margin: 10px;
     padding: 5px;
-    height: 20px;
+    height: 40px;
+    cursor: grab;
+    border: none;
     display: flex;
     border-radius: 5px;
     align-items: center;
@@ -137,65 +140,77 @@ header
     background-color: skyblue;
     justify-content: space-around;
 }
-.burger ul
-{
-    opacity: 0;
-    display: none;
-}
 .burger span
 {
     background-color: purple;
     width: 100%;
     height: 20%;
-    margin: 0;
     padding: 0;
     opacity: 1;
+    margin: 0;
 }
 .click
 {
-    position: absolute;
-    width: 60px;
-    height: 50px;
-    top: 3px;
-    right: 3px;
     background-color: rgba(127, 255, 212, 0);
-}
-.burger
-{
-    cursor: grab;
-}
-#tabs2
-{
-
-    top: 60px;
-    right: 10px;
-    z-index: 10;
-    width: 200px;
-    height: 200px;
-    padding: 10px;
-    display: flex;
-    visibility: hidden;
     position: absolute;
-    align-items: center;
-    flex-direction: column;
-    background-color: purple;
-    justify-content: space-evenly;
+    height: 50px;
+    width: 60px;
+    right: 3px;
+    top: 3px;
 }
-#tabs2 li, a
+
+#tabs
 {
-    color: skyblue;
-    font-weight: bold;
+    animation: slideright forwards 1s ease-in-out;
+    background-color: rgba(255, 0, 200, 0);
+    border-radius: 10px;
+    margin-top: 15dvh;
+    margin-left: 47%;
+    list-style: none;
+    border: none;
+    height: 40%;
+    width: 50%;
+}
+#tabs li
+{
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 5px 5px 5px 1px rgba(128, 0, 128, 0.666);
+    backdrop-filter: blur(40px);
+    justify-content: center;
     text-decoration: none;
     list-style-type: none;
-    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    align-items: center;
+    font-weight: bold;
+    color: skyblue;
+    margin-left: 5%;
+    margin-top: 5%;
+    display: flex;
+    height: 15%;
+    width: 90%;
+}
+#tabs a
+{
+    color: purple;
+    list-style: none;
+    font-size: larger;
+    text-decoration: none;
+}
+.list .action
+{
+    background-color: aqua;
 }
 .action a
 {
+    justify-content: center;
+    align-items: center;
     border-radius: 50px;
-    background-color: aqua;
     color: purple;
     padding: 10px;
+    display: flex;
+    width: 100%;
 }
+
 main
 {
     width: 99%;
@@ -214,23 +229,23 @@ main
 }
 .data
 {
-    z-index: 1;
-    position: absolute;
-    padding: 0;
     margin: 0;
+    z-index: 1;
+    padding: 0;
     width: 99%;
     height: 80vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    position: absolute;
     align-items: center;
+    flex-direction: column;
     scroll-snap-align: start;
+    justify-content: space-evenly;
 }
 .name
 {
-    display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
     width: 99%;
     z-index: 1;
 }
@@ -241,23 +256,23 @@ main
 }
 .summary
 {
-    padding: 0;
     margin: 0;
     width: 99%;
+    padding: 0;
     height: 80vh;
-    scroll-snap-align: start;  
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;  
 }
 .summary h2
 {
-    font-weight: bold;
-    color: rgb(46, 0, 46);
     padding: 10px;
-    text-shadow: 2px 2px 0px white;
+    font-weight: bold;
     font-size: x-large;
+    color: rgb(46, 0, 46);
+    text-shadow: 2px 2px 0px white;
 }
 .summary .data
 {
@@ -446,12 +461,6 @@ footer
     {
         cursor: grabbing;
     }
-    .burger :hover ul#tabs2
-    {
-
-        opacity: 1;
-        visibility: visible;
-    }
     .slogan
     {
         width: 99%;
@@ -510,7 +519,6 @@ footer
         display: flex;
         align-items: center;
         justify-content: space-around;
-        font-family: 'Courier New', Courier, monospace;
         font-weight: bolder;
         font-size: x-large;
     }
@@ -523,6 +531,8 @@ footer
     a
     {
         text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        color: skyblue;
     }
     a:hover
     {

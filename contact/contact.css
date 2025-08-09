@@ -1,6 +1,7 @@
 :root
 {
     --purple-gradient: linear-gradient(to right, purple, rgb(200, 29, 200), purple);
+    --dark-purple: rgb(39, 0, 39);
     --dark-blue: rgb(0, 0, 35);
     --mid-blue: rgb(25,25,112);
     --light-blue: rgb(25, 25, 255);
@@ -13,112 +14,219 @@
     --font-2-I: 'Impact';
     --font-3-C: 'Consolas';
 }
-html
-{
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    scroll-padding-top: 50px;
-    background: var(--purple-gradient);
-}
-*
-{
-    margin: 0px;
-    padding: 0px;
-}
-body
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 @keyframes slidein
 {
     0%{transform: translateX(100%);}
     100%{transform: translateX(0);}
-    /*animation: slidein 2s forwards infinite;*/
+    /*animation: slidein 2s forwards infinite{loop};*/
 }
 @keyframes slideup
 {
     0%{transform: translateY(-100%);}
     100%{transform: translateY(0);}
+    /*animation: slideup 2s forwards infinite;*/
+}
+/*---ANIMATIONS---*/
+@keyframes  pulse/*Makes the object change size in a pulsating motion*/
+{
+    0%, 100%{transform: scale(0.95);}
+    50%{transform: scale(1);}
+    /*animation: pulse 2s ease-in-out infinite;*/
+}
+@keyframes bounce
+{
+    0%, 100%{transform: translateY(0);}
+    50%{transform: translateY(-10px);}
+    /*animation: bounce 2s ease-in-out infinite;*/
+}
+@keyframes revolution
+{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+    /*animation: revolution 2s infinite linear;*/
+}
+@keyframes slidein
+{
+    0%{transform: translateX(-100%);}
+    100%{transform: translateX(0);}
     /*animation: slidein 2s forwards infinite;*/
 }
+@keyframes slideleft /*Slides In from the far Left*/
+{
+    0%{transform: translateX(-100%);}
+    100%{transform: translateX(0);}
+}
+@keyframes slideright
+{
+    0%{transform: translateX(100%);}
+    100%{transform: translateX(0);}
+}
+@keyframes zoomfade
+{
+    0%
+    {
+        transform: scaleX(0.1);
+        opacity: 0;
+    }
+    50%
+    {
+        transform: scaleX(0.8);
+        opacity: 0.5;
+    }
+    100%
+    {
+        transform: translateX(1);
+        opacity: 1;
+    }
+}
+
+html
+{
+    scroll-behavior: smooth;
+    box-sizing: content-box;
+    scroll-snap-type: y mandatory;
+    background: linear-gradient(45deg, purple,10%, var(--dark-purple),90%, purple);
+}
+*
+{
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth;
+    transition: all 0.5s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    scroll-behavior: smooth;
+}
+/*----Header Section----*/
 header
 {
+    top: 0px;
     width: 100%;
-    height: fit-content;
+    height: 10dvh;
+    z-index: 1000;
     display: flex;
-    justify-content: space-between;
+    font-size: large;
+    font-weight: bold;
+    position: absolute;
+    align-self: center;
     align-items: center;
     scroll-snap-align: start;
-    scroll-snap-align: start;
+    backdrop-filter: blur(10px);
+    justify-content: space-around;
     animation: slideup 1s forwards ease-in-out;
+    box-shadow: 0 0 5px 5px rgba(33, 0, 33, 0.54);
+    border-bottom: solid rgba(255, 255, 255, 0.321) 1px;
 }
-.icon
+.header-logo
 {
+    height: 90%;
     display: flex;
+    width: fit-content;
     align-items: center;
     justify-content: center;
-    height: 50px;
-    padding: 5px;
 }
-.icon img
+.header-logo img
 {
-    width: 100%;
-    height: 100%;
+    height: 90%;
+    width: auto;
     border-radius: 10px;
+}
+/*----Tabs ----*/
+.tabs
+{
+    width: 87%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.tabs li
+{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.tabs li a
+{
+    color: whitesmoke;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a
+{
+    text-decoration: none;
+}
+a:hover
+{
+    color: skyblue;
+    text-shadow: 2px 2px 0px skyblue;
+}
+/*----Burger Menu----*/
+.list
+{
+    display: none;
 }
 .burger
 {
     width: 40px;
-    margin: 10px;
     padding: 5px;
     height: 40px;
-    cursor: grab;
     border: none;
     display: flex;
-    border-radius: 5px;
+    background: none;
     align-items: center;
     flex-direction: column;
-    background-color: skyblue;
     justify-content: space-around;
 }
-.burger span
+.burger li
 {
-    background-color: purple;
-    width: 100%;
-    height: 20%;
+    margin: 0;
     padding: 0;
     opacity: 1;
-    margin: 0;
+    width: 100%;
+    height: 15%;
+    background: whitesmoke;
 }
 .click
 {
-    background-color: rgba(127, 255, 212, 0);
-    position: absolute;
-    height: 50px;
-    width: 60px;
-    right: 3px;
     top: 3px;
+    right: 3px;
+    width: 60px;
+    height: 50px;
+    z-index: 100;
+    position: absolute;
 }
-
+.burger :active
+{
+    cursor: grabbing;
+}
 #tabs
 {
-    animation: slideright forwards 1s ease-in-out;
-    background-color: rgba(255, 0, 200, 0);
-    border-radius: 10px;
-    margin-top: 15dvh;
-    margin-left: 47%;
-    list-style: none;
+    position: absolute;
+    background: none;
     border: none;
-    height: 40%;
+    height: 50%;
     width: 50%;
+    left: 40%;
+    top: 70px;
 }
 #tabs li
 {
+    box-shadow: 3px 3px 5px 0.5px rgba(30, 0, 30, 0.7);
     font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 5px 5px 5px 1px rgba(128, 0, 128, 0.666);
+    background-color: rgba(30, 0, 30, 0.7);
     backdrop-filter: blur(40px);
     justify-content: center;
     text-decoration: none;
@@ -126,7 +234,6 @@ header
     border-radius: 10px;
     align-items: center;
     font-weight: bold;
-    color: skyblue;
     margin-left: 5%;
     margin-top: 5%;
     display: flex;
@@ -135,21 +242,16 @@ header
 }
 #tabs a
 {
-    color: purple;
+    color: skyblue;
     list-style: none;
     font-size: larger;
     text-decoration: none;
-}
-.list .action
-{
-    background-color: aqua;
 }
 .action a
 {
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    color: purple;
     padding: 10px;
     display: flex;
     width: 100%;
@@ -158,100 +260,114 @@ header
 main
 {
     padding: 0;
-    margin: 0 auto;
     width: 99%;
-    height: 80vh;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    margin: 0 auto;
     align-items: center;
+    flex-direction: column;
     scroll-snap-align: start;
+    justify-content: space-evenly;
+}
+.main-bg
+{
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+} 
+.main-bg img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
 }
 .data
 {
-    z-index: 1;
-    position: absolute;
-    padding: 0;
     margin: 0;
-    width: 99%;
+    z-index: 1;
+    padding: 0;
+    width: 80%;
     height: 80vh;
     display: flex;
+    position: absolute;
+    align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
     scroll-snap-align: start;
+    justify-content: space-evenly;
 }
-.name
+.hero
 {
+    width: 90%;
+    height: 150px;
     display: flex;
-    justify-content: center;
+    background: none;
     align-items: center;
-    width: 99%;
-    z-index: 1;
+    justify-content: center;
 }
 .slogan
 {
-    width: 99%;
-    height: fit-content;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: purple;
-    background-color: rgba(135, 207, 235, 0.5);
+    width: 80%;
     display: flex;
-    justify-content: center;
+    font-size: 5dvw;
+    color: skyblue;
+    font-weight: 900;
     align-items: center;
-    font-size: 10vw;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bolder;
-    text-decoration: double;
-    animation: slidein 2s forwards ease-in-out;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    text-shadow: 2px 2px 0px white;
+    animation: slideleft 2s forwards ease-in-out;
+    border: solid rgba(255, 255, 255, 0.241) 1px;
+    font-family: sans-serif, 'Arial Narrow Bold', Impact, Haettenschweiler;
 }
 .more_btn
 {
-    border: solid purple 1px;
-    border-radius: 10px;
     padding: 10px;
-    box-shadow: 1px 1px 10px 1px;
+    border-radius: 10px;
+    border: solid purple 1px;
     backdrop-filter: blur(10px);
+    box-shadow: 1px 1px 10px 1px;
 }
 
 .more_btn a
 {
-    text-decoration: none;
-    color: purple;    
     font-family:Arial, Helvetica, sans-serif;
-    font-weight: bolder
+    text-decoration: none;
+    font-weight: bolder;
+    color: purple;    
 }
 
 .summary
 {
-    padding: 0;
     margin: 0;
-    background-color: purple;
+    padding: 0;
     width: 99%;
     height: 90vh;
-    scroll-snap-align: start;
-    background-image: url(images/depositphotos_47779979-stock-photo-people-at-work-during-a.jpg);    
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    scroll-snap-align: start;
+    justify-content: space-evenly;
+    animation: zoomfade 2s linear;
+    animation-timeline: view();
+    animation-range: entry cover 50%;
 }
 .contact-form
 {
-    border-radius: 20px;
-    border: solid purple;
-    box-shadow: 2px 5px 5px 5px black;
-    background: var(--purple-gradient);
-    backdrop-filter: blur(10px);
-    width: 90%;
-    height: 90%;
-    padding: 10px;
-    margin: 5px;
-    display: flex;
+    border: solid rgba(135, 207, 235, 0.303) 1px;
+    background-color: rgba(135, 207, 235, 0.04);
+    box-shadow: 2px 5px 40px 5px black;
+    justify-content: space-around;
+    backdrop-filter: blur(5px);
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    border-radius: 20px;
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+    height: 90%;
+    width: 90%;
 }
 h2
 {
@@ -266,156 +382,205 @@ hr
 input
 {
     border-radius: 5px;
+    min-width: 40%;
     padding: 5px;
-    width: 300px;
+    animation: slideleft 2s linear;
+    animation-timeline: view();
+    animation-range: entry cover 50%;
 }
 textarea
 {
     height: 200px;
     width: clamp(80%, 50%, 500px);
+    animation: zoomfade 2s linear;
+    animation-timeline: view();
+    animation-range: entry cover 50%;
 }
 .submit
 {
     padding: 10px;
-    border-radius: 15px;
-    font-family: var(--font-3-C);
-    font-weight: bolder;
     color: white;
+    border-radius: 15px;
+    font-weight: bolder;
     background-color: purple;
+    font-family: var(--font-3-C);
+    animation: slidedown 2s linear;
+    animation-timeline: view();
+    animation-range: entry cover 50%;
 }
 .submit:hover
 {
-    color: purple;
     background-color: white;
     transition: 0.5s;
+    color: purple;
 }
 .summary h1
 {
-    font-weight: bold;
-    color: purple;
     padding: 10px;
+    color: purple;
+    font-weight: bold;
     border-radius: 20px;
-    backdrop-filter: blur(20px);
     background-color: white;
+    backdrop-filter: blur(20px);
     box-shadow: 0px 0px 5px 5px white;
 }
 .text
 {
-    border: solid red;
+    margin: 0;
     width: 90%;
     height: 60%;
     padding: 10px;
-    margin: 0;
+    display: flex;
     color: purple;
-    font-family: sans-serif, 'Arial Narrow Bold', Impact, Haettenschweiler;
     font-size: larger;
     font-weight: bolder;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
     border-radius: 20px;
-    background-color: rgba(173, 216, 230, 0.5);
-    backdrop-filter: blur(10px);
-}
-
-article
-{
-
-    padding: 0;
-    margin: 0;
-    width: 99%;
-    height: 30vh;
-    display: flex;
     flex-direction: column;
+    backdrop-filter: blur(10px);
     justify-content: space-evenly;
-    align-items: center;
-    color: white;
-    scroll-snap-align: start;
-    background: var(--purple-gradient);
+    background-color: rgba(173, 216, 230, 0.5);
+    font-family: sans-serif, 'Arial Narrow Bold', Impact, Haettenschweiler;
 }
+
 h1
 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: x-large;
     font-weight: 400;
 }
-.parent
-{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    width: 90%;
-    font-family: var(--font-1-B);
-    color: white;
-}
-.call_head, .address_head
-{
-    font-weight: bolder;
-    text-decoration: underline;
-    font-size: large;
-}
-.contact li
-{
-    list-style-type: none;
-    text-decoration: none;
-    list-style: none;
-}
 .logo
 {
     width: 50px;
     height: auto;  
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 img
 {
-    padding: 0;
     margin: 0;
+    padding: 0;
     width: 100%;
+}
+/*----Contacts Section----*/
+#contacts
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 90dvh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    scroll-snap-align: start;
+}
+.contacts-bg
+{
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    position: absolute;
+}
+.contacts-bg img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: stretch;
+}
+.con-head
+{
+    align-content: center;
+    font-weight: bolder;
+    font-size: xx-large;
+    text-align: center;
+    color: white;
+    height: 10%;
+    width: 80%;
+}
+.parent
+{
+    gap: 20px;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+    animation: zoomfade 2s linear;
+}
+.con-box
+{
+    gap: 13%;
+    padding: 5%;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    color: white;
+    overflow: auto;
+    aspect-ratio: 1/1;
+    align-items: start;
+    border-radius: 20px;
+    list-style-type: none;
+    flex-direction: column;
+    justify-content: start;
+    backdrop-filter: blur(10px);
+    border: solid rgba(255, 255, 255, 0.321) 1px;
+}
+.con-box hr
+{
+    width: 90%;
 }
 footer
 {
-    background-color: aqua;
     width: 100%;
-    height: 40px;
+    height: 10dvh;
     display: flex;
     align-items: center;
+    scroll-snap-align: end;
     justify-content: space-between;
 }
 .copyright
 {
-    width: 20%;
     display: flex;
+    padding: 0 5%;
+    font-size: 1rem;
+    color: skyblue;
+    font-weight: bold;
+    width: fit-content;
     align-items: center;
     justify-content: center;
-    color: black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 .author
 {
-    font-style: italic;
-    color: var(--dark-blue);
-    font-family: var(--font-1-B);
     width: 500px;
     height: 30px;
     display: flex;
+    color: white;
+    font-style: italic;
     align-items: center;
     justify-content: right;
+    font-family: var(--font-1-B);
 }
 .author a
 {
-    color: var(--dark-blue);
+    justify-content: center;
     text-decoration: none;
     font-weight: bolder;
-    font-style: normal;
-    font-size: large;
-    width: 50%;
-    height: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 0 10% 0 5%;
+    font-style: normal;
+    width: fit-content;
+    color: skyblue;
+    font-size: large;
+    display: flex;
+    height: 100%;
 }
 .author a img
 {
@@ -423,45 +588,12 @@ footer
     height: 100%;
 }
 
-.background
-{
-    width: 100%;
-    height: 100%;
-}
-.background img
-{
-    height: 100%;
-    width: 100%;
-}
-.tabs li
-{
-    list-style-type: none;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
-    list-style-type: none;
-    font-size: x-large;
-}
-.tabs li a
-{
-    font-family: Arial, Helvetica, sans-serif;
-    color: skyblue;
-}
-a:hover
-{
-    text-shadow: 2px 2px 0px rgb(46, 0, 46);
-    transition: 0.4s;
-}
 @media screen and (max-width: 700px)
 {
     .list
     {
-        display: flex;
         flex-direction: row-reverse;
+        display: flex;
         width: 60%;
     }
     .tabs

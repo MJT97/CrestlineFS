@@ -8,55 +8,48 @@
         <link rel="stylesheet" type="text/css" href="contact.css" media="screen">
         <script type="text/javascript" href="index.js"></script>
     </head>
-
     <body>
         <header>
-            <div class="icon">
+            <figure class="header-logo">
                 <img src="/images/Labyrinth_Lettermark_Sky Blue.png">
-            </div>
-            <div class="tabs">
+            </figure>
+            <ul class="tabs">
                 <li><a href="/">HOME</a></li>
                 <li><a href="/services/">SERVICES</a></li>
                 <li><a href="/about/">ABOUT</a></li>
                 <li class="action"><a href="/contact/index.html#quotation">REQUEST A QUOTE</a></li>
-            </div>        
-        <div class="list">
-            <button class="burger" popovertarget="tabs">
-                <span class="a"></span>
-                <span class="b"></span>
-                <span class="c"></span>
-            </button>
-            <div id="tabs" popover>
-                        <li><a href="/">HOME</a></li>
-                        <li><a href="/services/">SERVICES</a></li>
-                        <li><a href="/about/">ABOUT</a></li>
-                        <li class="action"><a href="/contact/index.html#quotation">REQUEST A QUOTE</a></li>
-                    </ul>
-                </Span>
-        </div>
-
+            </ul>
+            <article class="list">
+                <button class="burger" popovertarget="tabs">
+                    <li class="a"></li>
+                    <li class="b"></li>
+                    <li class="c"></li>
+                </button>
+                <ul id="tabs" popover>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/services/">SERVICES</a></li>
+                    <li><a href="/about/">ABOUT</a></li>
+                    <li class="action"><a href="/contact/index.html#quotation">REQUEST A QUOTE</a></li>
+                </ul>
+            </article>
         </header>
+
         <main class="section">
-            <div class="background">
-               <img src="/images/depositphotos_47779979-stock-photo-people-at-work-during-a.jpg" alt="">     
-            </div>
-            <div id="slogan"></div>
-            <div class="data">
-                <div class="slogan">
-                    CONTACTS
-                </div>
-            </div> 
+            <figure class="main-bg">
+                <img src="/images/Aug 1, 2025, 01_03_32 PM.webp" alt="Contact section background image">
+            </figure>
+            <article class="hero">
+                <p class="slogan">
+                    GET IN TOUCH
+                </p>
+            </article> 
         </main>
 
         <section class="summary">
-            <div class="background">
-                <img src="/images/360_F_171826371_wrk3fpxKM7buTmjS2LI1ogYVAapIJtw5.jpg" alt="">     
-            </div>
-            <div id="note"></div>
-            <div class="data">
+            <article id="note" class="data">
                 <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                     <div class="contact-title">
-                        <h2>SENT US A NOTE</h2>
+                        <h2>Say Hi</h2>
                     </div>
                     <hr>
                     <input type="hidden" name="access_key" value="b309ec78-3d98-446a-b52c-c74bb802205e">
@@ -65,15 +58,11 @@
                     <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
                     <button type="submit" class="submit">SUBMIT</button>
                 </form> 
-            </div>
+            </article>
         </section>
 
-        <div id="appointment"></div>
-        <section class="summary">
-            <div class="background">
-                <img src="/images/360_F_171826371_wrk3fpxKM7buTmjS2LI1ogYVAapIJtw5.jpg" alt="">     
-            </div>
-            <div class="data">
+        <section id="appointment" class="summary">
+            <article class="data">
                 <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                     <div class="contact-title">
                         <h2>BOOK AN APOINTMENT</h2>
@@ -86,15 +75,11 @@
                     <textarea name="message" placeholder="Purpose of Appointment" class="contact-inputs" required></textarea>
                     <button type="submit" class="submit">SUBMIT</button>
                 </form> 
-            </div>
+            </article>
         </section>
 
-        <div id="quotation"></div>
-        <section class="summary">
-            <div class="background">
-                <img src="/images/360_F_171826371_wrk3fpxKM7buTmjS2LI1ogYVAapIJtw5.jpg" alt="">     
-            </div>
-            <div class="data">
+        <section id="quotation" class="summary">
+            <article class="data">
                 <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                     <div class="contact-title">
                         <h2>REQUEST A QUOTATION</h2>
@@ -106,33 +91,36 @@
                     <textarea name="message" placeholder="Quotation Details/Specifics" class="contact-inputs" required></textarea>
                     <button type="submit" class="submit">SUBMIT</button>
                 </form> 
-            </div>
+            </article>
         </section>
 
-        <article>
-            <h1>GET IN TOUCH WITH US:</h1>
-            <div class="parent">
-                <div class="contact">
-                    <p class="call_head">CALL NOW:</p>
-                    <ul>
-                        <li>[+27] 71 888 7315</li>
-                        <li>[+27] 74 897 8905</li>
-                        <li class="email">info.crestlinefs@gmail.com</li>
-                    </ul>
-                </div>
-                <div class="address">
-                    <span class="address_head">FIND US AT:</span>
-                    <p>1603 Moremadi Park</p>
-                    <p>Polokwane</p>
-                    <p>Limpopo</p>
-                    <p>0727</p>
-                </div>
-            </div>
-        </article>
+        <section id="contacts">
+            <figure class="contacts-bg">
+                <img src="/images/Aug 1, 2025, 01_03_32 PM.webp" alt="Contact section background image">
+            </figure>
+            <h1 class="con-head">GET IN TOUCH WITH US:</h1>
+            <article class="parent">
+                <ol class="contact con-box">
+                    <h3 class="call_head">CALL NOW: </h3>
+                    <hr>
+                    <li>(+27) 71 888 7315</li>
+                    <li>(+27) 76 269 2936</li>
+                    <li class="email">info.crestlinefs@gmail.com</li>
+                </ol>
+                <ul class="address con-box">
+                    <h3 class="address_head">FIND US AT: </h3>
+                    <hr>
+                    <li>1603 Moremadi Park</li>
+                    <li>Polokwane</li>
+                    <li>Limpopo</li>
+                    <li>0727</li>
+                </ul>
+            </article>
+        </section>
         <hr>
-        <footer>
-            <div class="copyright">CRESTLINE FINANCIAL SERVICES</div>
-            <div class="author">Designed by <a href="https://jephtamadziva.netlify.app/" target="_blank"><img src="/images/Signature_grad1.png" alt=""></a></div>
+        <footer class="footer-band">
+            <small class="copyright">CrestlineFS &copy; 2025</small>
+            <small class="author">Developed by <a href="https://jephtamadziva.netlify.app/" target="_blank">JEPHTA</a></small>
         </footer>
     </body>
 </html>
